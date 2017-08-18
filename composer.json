@@ -1,0 +1,33 @@
+{
+  "name": "benfranke/gdax-php",
+  "description": "Unofficial GDAX PHP Package",
+  "keywords": [
+    "gdax",
+    "php"
+  ],
+  "homepage": "https://github.com/benfranke/gdax-php",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Benjamin Franke",
+      "email": "benfranke@me.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "guzzlehttp/guzzle": "^6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "GDAX\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "GDAX\\Test\\": "tests"
+    }
+  }
+}
