@@ -208,7 +208,7 @@ class Product implements ResponseTypeInterface {
      * @return Product
      */
     protected function setStatus($status) {
-        $this->display_name = $status;
+        $this->status = $status;
         return $this;
     }
 }
