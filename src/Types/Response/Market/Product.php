@@ -55,6 +55,11 @@ class Product implements ResponseTypeInterface {
     protected $margin_enabled;
 
     /**
+     * @var string
+     */
+    protected $status;
+
+    /**
      * @return string
      */
     public function getId() {
@@ -190,4 +195,20 @@ class Product implements ResponseTypeInterface {
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getStatus() {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     *
+     * @return Product
+     */
+    protected function setStatus($status) {
+        $this->display_name = $status;
+        return $this;
+    }
 }
