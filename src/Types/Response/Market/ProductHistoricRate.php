@@ -6,18 +6,18 @@ use GDAX\Interfaces\ResponseTypeInterface;
 use GDAX\Traits\ResponseTypeTrait;
 
 /**
- * Class ProductHistoricRates
+ * Class ProductHistoricRate
  *
  * @author Brandon Eckenrode
  */
-class ProductHistoricRates implements ResponseTypeInterface {
+class ProductHistoricRate implements ResponseTypeInterface {
 
     use ResponseTypeTrait {
         initFromArray as protected traitInitFromArray;
     }
 
     /**
-     * @var int
+     * @var \DateTime
      */
     protected $time;
 
@@ -47,7 +47,7 @@ class ProductHistoricRates implements ResponseTypeInterface {
     protected $volume;
 
     /**
-     * @return int
+     * @return \DateTime
      */
     public function getTime() {
         return $this->time;
@@ -56,11 +56,17 @@ class ProductHistoricRates implements ResponseTypeInterface {
     /**
      * @param int $time
      *
-     * @return ProductHistoricRates
+     * @return ProductHistoricRate
      */
     protected function setTime($time) {
-        $this->time = (int)$time;
+
+        if ($time === null) {
+            $time = 0;
+        }
+
+        $this->time = new \DateTime('@' . $time);
         return $this;
+
     }
 
     /**
@@ -73,7 +79,7 @@ class ProductHistoricRates implements ResponseTypeInterface {
     /**
      * @param float $low
      *
-     * @return ProductHistoricRates
+     * @return ProductHistoricRate
      */
     protected function setLow($low) {
         $this->low = (float)$low;
@@ -90,7 +96,7 @@ class ProductHistoricRates implements ResponseTypeInterface {
     /**
      * @param float $high
      *
-     * @return ProductHistoricRates
+     * @return ProductHistoricRate
      */
     protected function setHigh($high) {
         $this->high = (float)$high;
@@ -107,7 +113,7 @@ class ProductHistoricRates implements ResponseTypeInterface {
     /**
      * @param float $open
      *
-     * @return ProductHistoricRates
+     * @return ProductHistoricRate
      */
     protected function setOpen($open) {
         $this->open = (float)$open;
@@ -124,7 +130,7 @@ class ProductHistoricRates implements ResponseTypeInterface {
     /**
      * @param float $close
      *
-     * @return ProductHistoricRates
+     * @return ProductHistoricRate
      */
     protected function setClose($close) {
         $this->close = (float)$close;
@@ -141,7 +147,7 @@ class ProductHistoricRates implements ResponseTypeInterface {
     /**
      * @param float $volume
      *
-     * @return ProductHistoricRates
+     * @return ProductHistoricRate
      */
     protected function setVolume($volume) {
         $this->volume = (float)$volume;
@@ -155,19 +161,12 @@ class ProductHistoricRates implements ResponseTypeInterface {
      */
     public function initFromArray(array $data) {
 
-        $this->setTime($data[0]);
-        
-        $this->setLow($data[1]);
-        
-        $this->setHigh($data[2]);
-        
-        $this->setOpen($data[3]);
-        
-        $this->setClose($data[4]);
-
-        $this->setVolume($data[5]);
-
-        return $this;
+        return $this->setTime($data[0])
+            ->setLow($data[1])
+            ->setHigh($data[2])
+            ->setOpen($data[3])
+            ->setClose($data[4])
+            ->setVolume($data[5]);
 
     }
 

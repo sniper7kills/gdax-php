@@ -159,7 +159,7 @@ class ProductTicker implements ResponseTypeInterface {
     }
 
     /**
-     * @param \DateTime $time
+     * @param string $time
      *
      * @return ProductTicker
      */
