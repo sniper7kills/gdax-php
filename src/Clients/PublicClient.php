@@ -7,6 +7,7 @@ use GDAX\Types\Request\Market\Product as RequestProduct;
 use GDAX\Types\Response\Market\Currency as ResponseCurrency;
 use GDAX\Types\Response\Market\Product as ResponseProduct;
 use GDAX\Types\Response\Market\Product24HourStats as ResponseProduct24HourStats;
+use GDAX\Types\Response\Market\ProductHistoricRates as ResponseProductHistoricRates;
 use GDAX\Types\Response\Market\ProductOrderBook as ResponseProductOrderBook;
 use GDAX\Types\Response\Market\ProductTicker as ResponseProductTicker;
 use GDAX\Types\Response\Market\Time as ResponseTime;
@@ -209,7 +210,7 @@ class PublicClient {
      * @return ResponseTypeInterface
      */
     public function getProductHistoricRates(RequestProduct $product) {
-        return $this->get(['products', $product->getProductId(), 'candles'], ResponseRawData::class, $product->toArray());
+        return $this->get(['products', $product->getProductId(), 'candles'], ResponseProductHistoricRates::class, $product->toArray());
     }
 
     /**
