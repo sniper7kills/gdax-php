@@ -161,6 +161,10 @@ class ProductHistoricRate implements ResponseTypeInterface {
      */
     public function initFromArray(array $data) {
 
+        if (!empty($data['message'])) {
+            return $this;
+        }
+
         return $this->setTime($data[0])
             ->setLow($data[1])
             ->setHigh($data[2])

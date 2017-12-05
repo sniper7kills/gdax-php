@@ -30,6 +30,11 @@ class Currency implements ResponseTypeInterface {
     protected $min_size;
 
     /**
+     * @var string
+     */
+    protected $status;
+
+    /**
      * @return string
      */
     public function getId() {
@@ -77,6 +82,23 @@ class Currency implements ResponseTypeInterface {
      */
     protected function setMinSize($min_size) {
         $this->min_size = (float)$min_size;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus() {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     *
+     * @return Currency
+     */
+    public function setStatus($status) {
+        $this->status = $status;
         return $this;
     }
 
