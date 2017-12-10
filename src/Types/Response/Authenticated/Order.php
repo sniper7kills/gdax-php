@@ -65,6 +65,11 @@ class Order implements ResponseTypeInterface {
     protected $time_in_force;
 
     /**
+     * @var \DateTime
+     */
+    protected $expire_time;
+
+    /**
      * @var string
      */
     protected $cancel_after;
@@ -284,6 +289,23 @@ class Order implements ResponseTypeInterface {
      */
     protected function setTimeInForce($time_in_force) {
         $this->time_in_force = $time_in_force;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getExpireTime() {
+        return $this->expire_time;
+    }
+
+    /**
+     * @param \DateTime $expire_time
+     *
+     * @return Order
+     */
+    public function setExpireTime($expire_time) {
+        $this->expire_time = new \DateTime($expire_time);
         return $this;
     }
 
