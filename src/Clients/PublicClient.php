@@ -15,7 +15,6 @@ use GDAX\Types\Response\Market\Trade as ResponseTrade;
 use GDAX\Types\Response\ResponseContainer;
 use GDAX\Utilities\GDAXConstants;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
 
 /**
@@ -87,6 +86,8 @@ class PublicClient {
      * @param array  $options
      * @param array  $headers
      *
+     * @throws \Exception
+     *
      * @return array
      */
     protected function request($method, array $uriParts, array $options = [], array $headers = []) {
@@ -144,7 +145,10 @@ class PublicClient {
         $data = json_decode($response->getBody()->getContents(), true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new RequestException('Received invalid JSON in response', $response);
+            throw new \Exception(
+                'Received invalid JSON in response. Error: ' . json_last_error_msg() .
+                ' - Body: ' . $response->getBody()->getContents()
+            );
         }
 
         if (!empty($response->getHeaders()['CB-BEFORE'])) {

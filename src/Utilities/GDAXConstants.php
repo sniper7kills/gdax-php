@@ -240,6 +240,21 @@ class GDAXConstants {
     const REPORT_FORMAT_CSV = 'csv';
 
     /**
+     * @var string
+     */
+    const CANCEL_AFTER_MIN = 'min';
+
+    /**
+     * @var string
+     */
+    const CANCEL_AFTER_HOUR = 'hour';
+
+    /**
+     * @var string
+     */
+    const CANCEL_AFTER_DAY = 'day';
+
+    /**
      * @var array
      */
     public static $defaultHeaders = [
@@ -263,6 +278,13 @@ class GDAXConstants {
     public static $timeInForceValues = [
         self::TIME_IN_FORCE_GTC, self::TIME_IN_FORCE_GTT,
         self::TIME_IN_FORCE_IOC, self::TIME_IN_FORCE_FOK,
+    ];
+
+    /**
+     * @var array
+     */
+    public static $cancelAfterValues = [
+        self::CANCEL_AFTER_MIN, self::CANCEL_AFTER_HOUR, self::CANCEL_AFTER_DAY
     ];
 
     /**

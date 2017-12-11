@@ -265,8 +265,11 @@ class Order implements RequestTypeInterface {
      * @return Order
      */
     public function setCancelAfter($cancel_after) {
+
+        $this->checkStringInArray($cancel_after, GDAXConstants::$cancelAfterValues);
         $this->cancel_after = $cancel_after;
         return $this;
+
     }
 
     /**
