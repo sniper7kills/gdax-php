@@ -112,5 +112,22 @@ class Withdrawal implements RequestTypeInterface {
         $this->coinbase_account_id = $coinbase_account_id;
         return $this;
     }
+    
+    /**
+     * @return string
+     */
+    public function getCryptoAddress() {
+        return $this->crypto_address;
+    }
+    
+    /**
+     * @param string $crypto_address
+     *
+     * @return Withdrawal
+     */
+    public function setCryptoAddress($crypto_address) {
+        $this->crypto_address = $crypto_address;
+        return $this;
+    }
 
 }
