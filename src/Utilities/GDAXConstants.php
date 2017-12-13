@@ -212,6 +212,11 @@ class GDAXConstants {
     /**
      * @var string
      */
+    const CURRENCY_LTC = 'LTC';
+
+    /**
+     * @var string
+     */
     const MARGIN_TRANSFER_TYPE_DEPOSIT = 'deposit';
 
     /**
@@ -327,7 +332,7 @@ class GDAXConstants {
      */
     public static $currencyValues = [
         self::CURRENCY_USD, self::CURRENCY_GBP, self::CURRENCY_EUR,
-        self::CURRENCY_BTC, self::CURRENCY_ETH,
+        self::CURRENCY_BTC, self::CURRENCY_ETH, self::CURRENCY_LTC,
     ];
 
     /**
